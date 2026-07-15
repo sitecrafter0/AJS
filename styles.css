@@ -145,6 +145,7 @@ p { margin: 0 0 1rem; color: var(--muted); }
   font-weight: 700;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   border: 1px solid transparent;
+  touch-action: manipulation;
 }
 .btn:hover { transform: translateY(-2px); }
 .btn-gold {
@@ -364,6 +365,8 @@ iframe { width: 100%; min-height: 320px; border: 0; border-radius: 1rem; }
   display: inline-flex;
   gap: 3rem;
   white-space: nowrap;
+  flex-wrap: nowrap;
+  min-width: max-content;
   animation: marquee 22s linear infinite;
 }
 .hero-values-track span {
@@ -371,6 +374,7 @@ iframe { width: 100%; min-height: 320px; border: 0; border-radius: 1rem; }
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
+  flex: 0 0 auto;
 }
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -423,6 +427,8 @@ iframe { width: 100%; min-height: 320px; border: 0; border-radius: 1rem; }
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+  touch-action: manipulation;
+  min-height: 48px;
 }
 .faq-answer {
   padding: 0 1.5rem 1.3rem;
@@ -443,6 +449,9 @@ iframe { width: 100%; min-height: 320px; border: 0; border-radius: 1rem; }
   box-shadow: 0 14px 34px rgba(37,211,102,0.27);
   z-index: 1200;
   font-weight: 700;
+  min-width: 130px;
+  text-align: center;
+  touch-action: manipulation;
 }
 @media (max-width: 760px) {
   .banner-inner { flex-direction: column; align-items: flex-start; }
@@ -485,7 +494,7 @@ iframe { width: 100%; min-height: 320px; border: 0; border-radius: 1rem; }
     max-width: 100%;
   }
   .video-card {
-    padding: 0;
+    padding: 0 0.5rem;
   }
   .video-card video {
     width: 100%;
