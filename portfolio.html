@@ -47,38 +47,32 @@
           <button class="filter-btn" data-filter="commercial">Commercial</button>
           <button class="filter-btn" data-filter="industrial">Industrial</button>
         </div>
-        <div class="portfolio-grid">
-          <article class="portfolio-card reveal" data-category="residential">
-            <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1000&q=80" alt="Luxury residential construction project" />
-            <div class="portfolio-card-body">
-              <h3>Modern Hillside Residence</h3>
-              <p>Paarl • Complete roofing and exterior finishing.</p>
-            </div>
-          </article>
-          <article class="portfolio-card reveal" data-category="commercial">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Commercial building project" />
-            <div class="portfolio-card-body">
-              <h3>Retail Fit-Out</h3>
-              <p>Stellenbosch • Refurbishment and detail-focused upgrade.</p>
-            </div>
-          </article>
-          <article class="portfolio-card reveal" data-category="industrial">
-            <img src="https://images.unsplash.com/photo-1517048676731-7f2f1b62d8d7?auto=format&fit=crop&w=1000&q=80" alt="Industrial warehouse construction" />
-            <div class="portfolio-card-body">
-              <h3>Warehouse Expansion</h3>
-              <p>Durban Road • Structural improvements and maintenance.</p>
-            </div>
-          </article>
-          <article class="portfolio-card reveal" data-category="residential">
-            <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1000&q=80" alt="Residential renovation project" />
-            <div class="portfolio-card-body">
-              <h3>Coastal Home Renovation</h3>
-              <p>Franschhoek • Renovation and painting transformation.</p>
-            </div>
-          </article>
-        </div>
+        <div class="portfolio-grid"></div>
       </section>
     </main>
+
+    <script>
+      const portfolioGrid = document.querySelector('.portfolio-grid');
+      const categories = ['residential', 'commercial', 'industrial'];
+      const descriptions = [
+        'Paarl • Complete roofing and exterior finishing.',
+        'Stellenbosch • Refurbishment and detail-focused upgrade.',
+        'Durban Road • Structural improvements and maintenance.',
+        'Franschhoek • Renovation and painting transformation.',
+        'Cape Town • Interior and exterior overhaul.',
+        'Hermanus • Exterior facade and site improvements.'
+      ];
+
+      for (let i = 1; i <= 28; i += 1) {
+        const card = document.createElement('article');
+        card.className = 'portfolio-card reveal';
+        card.dataset.category = categories[(i - 1) % categories.length];
+        card.innerHTML = `
+          <img src="${i}.jpeg" alt="Portfolio image ${i}" />
+        `;
+        portfolioGrid.appendChild(card);
+      }
+    </script>
 
     <div class="lightbox" aria-hidden="true">
       <button class="lightbox-close" aria-label="Close preview">×</button>
