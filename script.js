@@ -49,6 +49,14 @@ filterButtons.forEach((button) => {
   });
 });
 
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach((item) => {
+  const button = item.querySelector('.faq-question');
+  button?.addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+
 portfolioCards.forEach((card) => {
   card.addEventListener('click', () => {
     const image = card.querySelector('img');
@@ -89,9 +97,10 @@ const animateCounters = () => {
       let displayValue;
 
       if (target === 4) {
-        displayValue = '4.0';
+        const current = Math.max(1, Math.round(value));
+        displayValue = `${current}.0`;
       } else if (Number.isInteger(target)) {
-        displayValue = Math.round(value).toString();
+        displayValue = Math.max(1, Math.round(value)).toString();
       } else {
         displayValue = value.toFixed(1);
       }
